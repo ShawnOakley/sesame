@@ -29,14 +29,16 @@ function TypeAhead(props) {
     return (
         <div className="TypeAhead">
             <input onKeyUp={({target:{value}})=>{setFilter(value.toLowerCase())}} />
-            {props.options.filter((option) =>
-            {
-                return option.value.includes(filter) && filter.length
-            }).map((option)=>(
-                <div key={option.value}>
-                    {decorateLabel(option.label)}
-                </div>
-            ))}
+            <div className={"container"}>
+                {props.options.filter((option) =>
+                {
+                    return option.value.includes(filter) && filter.length
+                }).map((option)=>(
+                    <div key={option.value}>
+                        {decorateLabel(option.label)}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
